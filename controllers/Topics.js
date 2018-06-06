@@ -1,5 +1,5 @@
-const app = require('../app');
-const db = require('../db');
+import app from '../app';
+import db from '../db';
 
 class Topics {
   constructor() {
@@ -25,4 +25,4 @@ class Topics {
 
 }
 
-module.exports = new Topics;
+export default new Topics;

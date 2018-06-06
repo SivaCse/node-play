@@ -1,4 +1,4 @@
-const app = require('./app');
+import app from './app';
 
 class App {
   constructor() {
@@ -15,4 +15,4 @@ class App {
 
 }
 
-module.exports = new App;
+export default new App;

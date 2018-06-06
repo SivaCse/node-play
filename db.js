@@ -1,3 +1,4 @@
-const db = require('monk')('localhost/Notes');
+import monk from 'monk';
+const db = monk('localhost/Notes');
 
-module.exports = db;
+export default db;
