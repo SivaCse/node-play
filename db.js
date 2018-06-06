@@ -1,4 +1,5 @@
 import monk from 'monk';
-const db = monk('localhost/Notes');
+import mongoose from 'mongoose';
+mongoose.connect('mongodb://localhost/Notes');
 
-export default db;
+export default mongoose;

@@ -1,5 +1,6 @@
 import app from '../app';
-import db from '../db';
+import Topic from '../models/Topic';
+import { ReqResHelper } from '../helpers/PromiseHandlers';
 
 class Topics {
   constructor() {
@@ -8,19 +9,27 @@ class Topics {
 
   initRoute() {
     app.get('/topics',this.getTopics);
-    app.post('/topics',this.saveTopics);
+    app.post('/topics',this.saveTopic);
+    app.put('/topics',this.updateTopic);
+    app.delete('/topics',this.removeTopic);
   }
 
-  getTopics(req, res) {
-    const topics = db.get('topics');
-    topics.find({}).then((data)=>res.send(data));
+  async getTopics(req, res) {
+    const result = await Topic.find({});
+    res.send(result);
   }
 
-  saveTopics(req, res) {
-    const topics = db.get('topics');
-    topics.insert(req.body)
-    .then(data => res.json(data))
-    .catch(err => console.log('Error Topic Save', err));
+  async saveTopic(req, res) {
+    const topic = new Topic(req.body);
+    const result = await topic.save(ReqResHelper(req, res));
+  }
+
+  async updateTopic(req, res) {
+    const topic = await Topic.findByIdAndUpdate(req.body._id, req.body, ReqResHelper(req, res));
+  }
+
+  async removeTopic(req, res) {
+    const topic = await Topic.findByIdAndRemove(req.body._id, ReqResHelper(req, res));
   }
 
 }
