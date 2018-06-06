@@ -2,7 +2,7 @@ import mongoose from '../db';
 const Schema = mongoose.Schema;
 
 const TopicSchema = new Schema({
-  name:  String,
+	name:  String,
 },
 { versionKey: false });
 

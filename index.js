@@ -1,17 +1,17 @@
 import app from './app';
 
 class App {
-  constructor() {
-    this.initApp();
-  }
+	constructor() {
+		this.initApp();
+	}
 
-  greeting(req, res) {
-    res.send('Hello World');
-  }
+	greeting(req, res) {
+		res.send('Hello World');
+	}
 
-  initApp() {
-    app.get('/', this.greeting);
-  }
+	initApp() {
+		app.get('/', this.greeting);
+	}
 
 }
 
