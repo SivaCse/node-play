@@ -4,11 +4,11 @@ const ObjectId = Schema.ObjectId;
 
 const NoteSchema = new Schema({
 	topicId: ObjectId,
-	postName: String,
-	postDesc: String,
+	postName: { type: String, required: true },
+	postDesc: { type: String, required: true },
 	tags: Array,
-	createdOn: Date,
-	modifiedOn: Date
+	createdOn: { type: Date, default: Date.now() },
+	modifiedOn: { type: Date, default: Date.now() }
 },
 { versionKey: false });
 
