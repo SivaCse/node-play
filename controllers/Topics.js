@@ -15,7 +15,7 @@ class Topics {
 	}
 
 	async getTopics(req, res) {
-		const result = await Topic.find({});
+		const result = await Topic.find({ categoryId:'5b1e1bc9df9c7e852002c122' });
 		res.send(result);
 	}
 
